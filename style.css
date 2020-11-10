@@ -1,0 +1,140 @@
+body{
+    background-color: #40868A;
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+#calculator{
+    background-color: whitesmoke;
+    width: 292px;
+    height: 450px;
+    border-radius: 8px;
+    box-shadow:0 4px 8px 0 grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#screen{
+    height: 20%;
+    text-align: right;
+    /* border: 1px solid red; */
+}
+
+#history{
+    font-size: 20px;
+    padding: 10px;
+    color: grey;
+}
+
+#result{
+    padding: 0 10px;
+    font-size: 40px;
+}
+
+#keyboard{
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    /* align-content: space-between; */
+    align-content: space-around;
+}
+
+.button{
+    width: 60px;
+    height: 60px;
+    /* margin: 10px 0 0 10px; */
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:nth-child(1){
+    background-color: #555;
+    color: whitesmoke;
+    font-size: 15px;
+}
+button:nth-child(2){
+    background-color: #B62F3D;
+    color: whitesmoke;
+    font-size: 15px;
+}
+button:nth-child(3){
+    background-color: #0088AA;
+    font-size: 20px;
+}
+button:nth-child(4){
+    background-color: #2B9147;
+    color: whitesmoke;
+    font-size: 15px;
+}
+button:nth-child(8){
+    background-color: #ffa500;
+    font-size: 20px;
+}
+button:nth-child(12){
+    background-color: #f08080;
+    font-size: 20px;
+}
+button:nth-child(16){
+    background-color: #7d93e0;
+    font-size: 20px;
+}
+button:nth-child(17){
+    background-color: #800C1D;
+    font-size: 15px;
+    color: whitesmoke;
+}
+button:nth-child(20){
+    background-color: #9477af;
+    font-size: 20px;
+}
+
+.operator{
+    font-weight: bold;
+}
+
+.blank{
+    background-color: whitesmoke;
+    border: none;
+    cursor: auto;
+}
+
+@media only screen and (max-width: 400px) {
+    body {
+      background-color: green;
+    }
+    #calculator{
+        background-color: whitesmoke;
+        width: 100%;
+        height: 100%;
+        border-radius: 0%;
+    }
+    #screen{
+        height: 30%;
+        vertical-align: middle
+    }
+    
+    #history{
+        font-size: 20px;
+    }
+    
+    #result{
+        font-size: 70px;
+    }
+    
+    #keyboard{
+        height: 70%;
+    }
+    .button{
+        width: 22vw;
+        height: 22vw;
+    }
+    
+  }
