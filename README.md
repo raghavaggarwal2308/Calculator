@@ -1,4 +1,4 @@
-# Calculator
+# Calculator preview-> https://raghavaggarwal2308.github.io/Calculator/.
 calculator with html css nd js
 responsive design.
 minor bugs will be fixed shortly.
