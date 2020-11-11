@@ -21,17 +21,25 @@ body{
     height: 20%;
     text-align: right;
     /* border: 1px solid red; */
+    overflow: hidden;
+    margin-left:auto;
+    margin-right:auto;
+    white-space: nowrap;
 }
 
 #history{
     font-size: 20px;
     padding: 10px;
     color: grey;
+    float: right;
+    clear: both;
 }
 
 #result{
     padding: 0 10px;
     font-size: 40px;
+    float: right;
+    clear: both;
 }
 
 #keyboard{

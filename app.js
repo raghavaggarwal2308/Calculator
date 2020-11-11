@@ -2,16 +2,21 @@
 var numbers = document.getElementsByClassName("number");
 var his="";
 var num="";
+var onof = 0;
 var result = document.getElementById("result");
 var exp = document.getElementById("history");
+var sent = document.getElementById("screen");
+sent.scrollRight += sent.scrollWidth;
 for(var i=0;i<numbers.length;i++)
 {
     numbers[i].addEventListener('click',function(){
         // alert("number clicked");
-        his = his+this.id;
-        num=num+this.id;
-        result.innerText=num;
-        exp.innerText=his;
+        if(onof==1){
+            his = his+this.id;
+            num=num+this.id;
+            result.innerText=num;
+            exp.innerText=his;
+        }
         // console.log(this.id);
     });
 }
@@ -21,12 +26,16 @@ for(var i=0;i<operators.length;i++)
 {
     
     operators[i].addEventListener('click',function(){
-        if(isNaN(his[his.length-1]) && this.id!='-'){
-            his = his.substring(0, his.length - 1);}
-        his=his+this.id;
-        num="";
-        exp.innerText=his;
-        result.innerText="";
+        if(onof==1){
+            if(isNaN(his[his.length-1]) && this.id!='-'){
+                his = his.substring(0, his.length - 1);}
+            if(exp.innerText!=""){
+                his=his+this.id;
+                num="";
+                exp.innerText=his;
+                result.innerText="";
+            }
+        }
     });
 }
 
@@ -69,21 +78,26 @@ document.onkeydown=function(e){
         result.innerText="";
         his = "";
         res="";
+        num="";
     }
 };
-    
+
 var on = document.getElementById("ON").addEventListener('click',function(){
-    if(result.innerText=="")
+    if(result.innerText==""){
+        onof=1;
         result.innerText="Welcome";
         his = "";
         res="";
+        num="";}
 });
 
 var off = document.getElementById("OFF").addEventListener('click',function(){
+    onof=0;
     if(result.innerText!=""){
         exp.innerText="";
         result.innerText="";
         his = "";
         res="";
+        num="";
     }
 });
