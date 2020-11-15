@@ -18,28 +18,46 @@ body{
 }
 
 #screen{
+    /* background-color: gainsboro; */
     height: 20%;
     text-align: right;
+    border-radius: 8px;
     /* border: 1px solid red; */
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-left:auto;
     margin-right:auto;
     white-space: nowrap;
 }
 
 #history{
+    height: 35%;
+    width: 100%;
+    /* border: 1px solid green; */
     font-size: 20px;
     padding: 10px;
     color: grey;
     float: right;
     clear: both;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    box-sizing: border-box;
 }
-
+#history::-webkit-scrollbar { 
+    display: none; 
+}
 #result{
+    box-sizing: border-box;
+    height: 65%;
+    width: 100%;
+    /* border: 1px solid blue; */
     padding: 0 10px;
     font-size: 40px;
     float: right;
+    overflow-x: scroll;
     clear: both;
+}
+#result::-webkit-scrollbar { 
+    display: none; 
 }
 
 #keyboard{
@@ -50,6 +68,7 @@ body{
     justify-content: space-around;
     /* align-content: space-between; */
     align-content: space-around;
+    clear: both;
 }
 
 .button{

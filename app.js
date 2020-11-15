@@ -7,15 +7,20 @@ var result = document.getElementById("result");
 var exp = document.getElementById("history");
 var sent = document.getElementById("screen");
 sent.scrollRight += sent.scrollWidth;
+function isFloat(n){
+    return Number(n) === n && n % 1 !== 0;
+}
 for(var i=0;i<numbers.length;i++)
 {
     numbers[i].addEventListener('click',function(){
         // alert("number clicked");
         if(onof==1){
+
             his = his+this.id;
             num=num+this.id;
             result.innerText=num;
             exp.innerText=his;
+            result.scrollLeft=result.scrollWidth;
         }
         // console.log(this.id);
     });
@@ -43,7 +48,12 @@ var equals = document.getElementById("eq").addEventListener('click',function(){
     console.log("equal");
     exp.innerText=his;
     res = eval(his);
-    result.innerText=res;
+    // var intr = parseInt(num, 10);
+    console.log(typeof(res));
+    if(isFloat(res))
+         result.innerText=res.toFixed(2);
+    else
+        result.innerText=res;
     // `=${res}`;
     his=`${res}`;
     console.log(his);
@@ -52,7 +62,7 @@ var equals = document.getElementById("eq").addEventListener('click',function(){
 
 var clear= document.getElementById("CE").addEventListener('click',function(){
     exp.innerText="";
-    result.innerText="";
+    result.innerText="0";
     his = "";
     res="";
     num="";
@@ -83,9 +93,9 @@ document.onkeydown=function(e){
 };
 
 var on = document.getElementById("ON").addEventListener('click',function(){
-    if(result.innerText==""){
+    if(result.innerText==""&&onof==0){
         onof=1;
-        result.innerText="Welcome";
+        result.innerText="0";
         his = "";
         res="";
         num="";}
