@@ -3,6 +3,7 @@ var numbers = document.getElementsByClassName("number");
 var his="";
 var num="";
 var onof = 0;
+var res;
 var result = document.getElementById("result");
 var exp = document.getElementById("history");
 var sent = document.getElementById("screen");
@@ -77,6 +78,36 @@ var del = document.getElementById("del").addEventListener('click',function(){
 });
 
 document.onkeydown=function(e){
+    if((e.keyCode >=106 && e.keyCode<=111) && e.keyCode!=110){
+        console.log("entered if 1");
+        if(onof==1){
+            console.log("entered if 2");
+            if(isNaN(his[his.length-1]) && e.key!='-'){
+                console.log("enterd if 3");
+                his = his.substring(0, his.length - 1);
+            }
+            if(exp.innerText!=""){
+                console.log("entered if 4");
+                his=his+e.key;
+                console.log(e.key);
+                num="";
+                exp.innerText=his;
+                result.innerText="";
+            }
+        }
+    }
+    if (e.keyCode === 13) {
+        console.log("equal");
+        exp.innerText = his;
+        res = eval(his);
+        console.log(typeof res);
+        if (isFloat(res)) result.innerText = res.toFixed(2);
+        else result.innerText = res;
+        his = `${res}`;
+        console.log(his);
+        num = `${res}`;
+      } 
+
     if(e.keyCode==8){
         his = his.substring(0, his.length - 1);
         num = num.substring(0, num.length - 1);
@@ -98,42 +129,53 @@ document.onkeydown=function(e){
             exp.innerText=his;
             result.scrollLeft=result.scrollWidth;
         }
+    }
         console.log(e.key);
         console.log("ok");
-    if((e.keyCode >=106 && e.keyCode<=111) && e.keyCode!=110){
-        console.log("entered if 1");
-        if(onof==1){
-            console.log("entered if 2");
-            if(isNaN(his[his.length-1]) && e.key!='-'){
-                console.log("enterd if 3");
-                his = his.substring(0, his.length - 1);
-            }
-            if(exp.innerText!=""){
-                console.log("entered if 4");
-                his=his+e.key;
-                console.log(e.key);
-                num="";
-                exp.innerText=his;
-                result.innerText="";
-            }
-        }
-    }
-    if(e.keyCode==16){
-        console.log("equal");
-        exp.innerText=his;
-        res = eval(his);
-        // var intr = parseInt(num, 10);
-        console.log(typeof(res));
-        if(isFloat(res))
-             result.innerText=res.toFixed(2);
-        else
-            result.innerText=res;
-        // `=${res}`;
-        his=`${res}`;
-        console.log(his);
-        num=`${res}`;
-    }    
-}
+    // if((e.keyCode >=106 && e.keyCode<=111) && e.keyCode!=110){
+    //     console.log("entered if 1");
+    //     if(onof==1){
+    //         console.log("entered if 2");
+    //         if(isNaN(his[his.length-1]) && e.key!='-'){
+    //             console.log("enterd if 3");
+    //             his = his.substring(0, his.length - 1);
+    //         }
+    //         if(exp.innerText!=""){
+    //             console.log("entered if 4");
+    //             his=his+e.key;
+    //             console.log(e.key);
+    //             num="";
+    //             exp.innerText=his;
+    //             result.innerText="";
+    //         }
+    //     }
+    // }
+    // if (e.keyCode === 13) {
+    //     console.log("equal");
+    //     exp.innerText = his;
+    //     res = eval(his);
+    //     console.log(typeof res);
+    //     if (isFloat(res)) result.innerText = res.toFixed(2);
+    //     else result.innerText = res;
+    //     his = `${res}`;
+    //     console.log(his);
+    //     num = `${res}`;
+    //   } 
+    // if(e.keyCode==16){
+    //     console.log("equal");
+    //     exp.innerText=his;
+    //     res = eval(his);
+    //     // var intr = parseInt(num, 10);
+    //     console.log(typeof(res));
+    //     if(isFloat(res))
+    //          result.innerText=res.toFixed(2);
+    //     else
+    //         result.innerText=res;
+    //     // `=${res}`;
+    //     his=`${res}`;
+    //     console.log(his);
+    //     num=`${res}`;
+    //     }
 };
 
 var on = document.getElementById("ON").addEventListener('click',function(){
