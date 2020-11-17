@@ -90,6 +90,50 @@ document.onkeydown=function(e){
         res="";
         num="";
     }
+    if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)||e.keyCode==110){
+        if(onof==1){
+            his = his+e.key;
+            num=num+e.key;
+            result.innerText=num;
+            exp.innerText=his;
+            result.scrollLeft=result.scrollWidth;
+        }
+        console.log(e.key);
+        console.log("ok");
+    if((e.keyCode >=106 && e.keyCode<=111) && e.keyCode!=110){
+        console.log("entered if 1");
+        if(onof==1){
+            console.log("entered if 2");
+            if(isNaN(his[his.length-1]) && e.key!='-'){
+                console.log("enterd if 3");
+                his = his.substring(0, his.length - 1);
+            }
+            if(exp.innerText!=""){
+                console.log("entered if 4");
+                his=his+e.key;
+                console.log(e.key);
+                num="";
+                exp.innerText=his;
+                result.innerText="";
+            }
+        }
+    }
+    if(e.keyCode==16){
+        console.log("equal");
+        exp.innerText=his;
+        res = eval(his);
+        // var intr = parseInt(num, 10);
+        console.log(typeof(res));
+        if(isFloat(res))
+             result.innerText=res.toFixed(2);
+        else
+            result.innerText=res;
+        // `=${res}`;
+        his=`${res}`;
+        console.log(his);
+        num=`${res}`;
+    }    
+}
 };
 
 var on = document.getElementById("ON").addEventListener('click',function(){
